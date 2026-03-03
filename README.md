@@ -102,7 +102,7 @@ https://your-domain.com/api/webhook
 
 `🔙` 
 `🏠`
-![Button 🔙 🏠 Edit Stok](screenshots/11_button_back_home_.png)
+![Button 🔙 🏠 Edit Stok](screenshots/11_button_back_home.png)
 
 ### Perintah dan Button Dijalankan
 `/tambahbarang`
