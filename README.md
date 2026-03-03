@@ -1,18 +1,42 @@
 # Telegram Inventory Automation Bot
-Laravel-based Telegram Bot for Inventory Management using Webhook Integration.
 
-## 📌 Deskripsi Project
-Telegram Inventory Automation Bot adalah sistem otomatisasi pengelolaan stok barang berbasis Telegram Bot yang dikembangkan menggunakan Laravel. Sistem ini memungkinkan admin untuk melakukan update stok, melihat data inventory, serta mencatat transaksi masuk dan keluar secara real-time melalui Telegram.
+Backend-based Inventory Management Automation built using Laravel and integrated with Telegram Bot API via Webhook architecture.
 
-Bot ini diintegrasikan menggunakan Telegram Bot API dengan metode webhook untuk memastikan komunikasi data berlangsung cepat dan efisien.
+---
 
-Project ini dikembangkan sebagai bagian dari internship.
+## 📌 Project Overview
+
+Telegram Inventory Automation Bot adalah sistem backend automation untuk manajemen stok barang yang dikontrol melalui Telegram Bot. Sistem ini memungkinkan admin melakukan pencatatan transaksi masuk/keluar, pengecekan stok secara real-time, serta pengelolaan data inventory langsung melalui chat interface Telegram.
+
+Project ini dikembangkan sebagai implementasi RESTful backend service dengan pendekatan MVC dan webhook-based communication.
+
+---
+
+## 🏗 System Architecture
+
+- **Architecture Pattern**: MVC (Model-View-Controller)
+- **API Style**: RESTful Endpoint
+- **Integration Method**: Telegram Webhook
+- **Database**: MySQL (Relational Database)
+- **ORM**: Eloquent ORM
+- **Validation**: Server-side Validation
+- **Transaction Logging**: Database-based activity logging
+
+### 🔄 Request Flow
+
+1. User mengirim command ke Telegram Bot  
+2. Telegram mengirim request ke webhook endpoint (`/api/webhook`)  
+3. Laravel memproses request melalui Controller  
+4. Business Logic dieksekusi  
+5. Database diperbarui (jika diperlukan)  
+6. Response dikirim kembali ke Telegram API  
 
 ---
 
 ## 🛠 Tech Stack
+
 - PHP 8+
-- Laravel
+- Laravel Framework
 - MySQL
 - Telegram Bot API
 - Webhook Integration
@@ -21,118 +45,72 @@ Project ini dikembangkan sebagai bagian dari internship.
 
 ---
 
-## ⚙️ Cara Instalasi
+## ⚙️ Installation Guide
 
-1️⃣ Clone repository
+### 1️⃣ Clone Repository
+
 ```bash
 git clone https://github.com/auroralph/inventory-telegram-bot.git
-```
-2️⃣ Masuk ke folder project
-```bash
 cd inventory-telegram-bot
 ```
-3️⃣ Install dependency
+
+### 2️⃣ Install Dependencies
+
 ```bash
 composer install
 ```
-4️⃣ Copy file environment
+
+### 3️⃣ Setup Environment
+
 ```bash
 cp .env.example .env
-```
-5️⃣ Generate app key
-```bash
 php artisan key:generate
 ```
-6️⃣ Konfigurasi database di file `.env`
 
-7️⃣ Jalankan migration
+Konfigurasi database pada file `.env`.
+
+### 4️⃣ Run Migration
+
 ```bash
 php artisan migrate
 ```
 
-##  ▶️ Cara Menjalankan Project
+---
+
+## ▶️ Running the Application
 
 Jalankan server lokal:
+
 ```bash
 php artisan serve
 ```
-Pastikan webhook sudah di-set pada Telegram Bot API ke endpoint:
-```bash
+
+Set webhook Telegram ke endpoint berikut:
+
+```
 https://your-domain.com/api/webhook
 ```
 
-## 🏗 System Architecture
-- MVC Pattern (Laravel)
-- RESTful API Endpoint
-- Webhook-based Communication
-- Role-based Validation
-- Database Transaction Logging
+---
 
-## 📷 Screenshot
-### Tampilan Semua Perintah Bot
-![Perintah Bot](screenshots/1_perintah.jpeg)
-![Perintah Bot](screenshots/2_perintah.png)
-![Perintah Bot](screenshots/3_perintah.png)
+## 📷 Feature Demonstration
 
-### Perintah Dijalankan
-`/start`
-![Mulai Bot](screenshots/4_start.png)
+- `/start` → Inisialisasi bot
+- `/stok` → Cek stok barang
+- `/cari {nama_produk}` → Pencarian produk
+- `/editstok` → Update stok dengan tombol interaktif
+- `/tambahbarang` → Tambah produk baru
+- `/hapus` → Hapus produk
+- `/log` → Lihat histori transaksi
+- `/updatehari` → Update stok harian
+- `/laporan` → Generate laporan
 
-### Perintah dan Button Dijalankan
-`/stok`
-![Stok](screenshots/5_stok.png)
+Screenshot tersedia pada folder `screenshots/`.
 
-`🔙` 
-![Kembali](screenshots/6_button_back.png)
+---
 
-`🏠`
-![Menu](screenshots/7_button_home.png)
+## 📁 Simplified Project Structure
 
-### Perintah Dijalankan
-`/cari nama_product`
-![Hasil Pencarian](screenshots/8_cari.png)
-
-### Perintah dan Button Dijalankan
-`/editstok`
-![Edit Stok](screenshots/9_editstok.png)
-
-`➕`
-`➖`
-![Button ➕ ➖ Edit Stok](screenshots/10_button_plus_minus.png)
-
-`🔙` 
-`🏠`
-![Button 🔙 🏠 Edit Stok](screenshots/11_button_back_home.png)
-
-### Perintah dan Button Dijalankan
-`/tambahbarang`
-![Tambah Barang](screenshots/12_tambahbarang.png)
-![Tambah Barang](screenshots/13_tambahbarang.png)
-
-`🔙` 
-![Back_Tambah Barang](screenshots/14_back.png)
-
-### Perintah Dijalankan
-`/hapus`
-![Hapus](screenshots/15_hapus.png)
-
-### Perintah Dijalankan
-`/log`
-![Log](screenshots/16_log.png)
-![Log](screenshots/17_log.png)
-
-### Perintah Dijalankan
-`/updatehari`
-![Update Hari](screenshots/18_updatehari.png)
-
-### Perintah dan Button Dijalankan
-`/laporan`
-![Laporan](screenshots/19_laporan.png)
-
-`🔙 Semua Laporan`
-![Semua Laporan](screenshots/20_button_back_semua_laporan.png)
-
-##  📁 Struktur Folder (Ringkas)
 ```bash
 app/
  ├── Http/
@@ -145,9 +123,26 @@ routes/
  ├── web.php
 ```
 
- ##  ✨ Fitur Utama
-- Update stok barang
-- Cek stok real-time
-- Validasi input user
-- Logging transaksi
-- Integrasi webhook Telegram
+---
+
+## ✨ Key Features
+
+- Real-time stock monitoring
+- CRUD inventory management
+- Interactive Telegram button handling
+- Server-side validation
+- Transaction logging system
+- Webhook-based API integration
+- Modular MVC architecture
+
+---
+
+## 🚀 Deployment Ready
+
+Project telah dikonfigurasi untuk production-ready environment dan dapat di-deploy ke layanan hosting yang mendukung PHP & Laravel.
+
+---
+
+## 📄 License
+
+This project is developed for educational and internship purposes.
