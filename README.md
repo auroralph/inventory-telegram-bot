@@ -70,16 +70,16 @@ https://your-domain.com/api/webhook
 
 ## 📷 Screenshot
 ### Tampilan Semua Perintah Bot
-![Perintah Bot](screenshots/1_perintah.png)
+![Perintah Bot](screenshots/1_perintah.jpeg)
 ![Perintah Bot](screenshots/2_perintah.png)
 ![Perintah Bot](screenshots/3_perintah.png)
 
 ### Perintah Dijalankan
-`/Mulai`
+`/start`
 ![Mulai Bot](screenshots/4_start.png)
 
 ### Perintah dan Button Dijalankan
-`/Stok`
+`/stok`
 ![Stok](screenshots/5_stok.png)
 
 `🔙` 
@@ -130,7 +130,7 @@ https://your-domain.com/api/webhook
 ![Laporan](screenshots/19_laporan.png)
 
 `🔙 Semua Laporan`
-![Tambah Barang](screenshots/20_button_back_semua_laporan.png)
+![Semua Laporan](screenshots/20_button_back_semua_laporan.png)
 
 ##  📁 Struktur Folder (Ringkas)
 ```bash
